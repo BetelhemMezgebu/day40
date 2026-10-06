@@ -1,31 +1,39 @@
-import Link from "next/link";
+import { placeOrder } from "../actions";
 
 export default function CheckoutPage() {
   return (
-    <main>
-      <h1>Checkout</h1>
+    <section>
+      <h2>Checkout</h2>
 
-      <form>
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
+      <form action={placeOrder}>
+        <div>
+          <label htmlFor="name">
+            Name
+          </label>
 
-        <br />
+          <input
+            id="name"
+            name="name"
+            required
+          />
+        </div>
 
-        <label>
-          Address:
-          <input type="text" name="address" />
-        </label>
+        <div>
+          <label htmlFor="phone">
+            Phone
+          </label>
 
-        <br />
+          <input
+            id="phone"
+            name="phone"
+            required
+          />
+        </div>
 
-        <button type="submit">Place Order</button>
+        <button type="submit">
+          Place Order
+        </button>
       </form>
-
-      <br />
-
-      <Link href="/cart">Back to Cart</Link>
-    </main>
+    </section>
   );
 }

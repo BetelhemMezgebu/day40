@@ -1,32 +1,22 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import {
+  getDishById,
+  getDishes,
+} from "../../../lib/dishes";
 
-const dishes = [
-  {
-    id: "kitfo",
-    name: "Kitfo",
-    price: 350,
-    description: "Traditional Ethiopian minced beef dish.",
-  },
-  {
-    id: "pizza",
-    name: "Pizza",
-    price: 500,
-    description: "Freshly baked pizza.",
-  },
-  {
-    id: "burger",
-    name: "Burger",
-    price: 400,
-    description: "Beef burger with fresh vegetables.",
-  },
-];
+export async function generateStaticParams() {
+  const dishes = await getDishes();
+
+  return dishes.map((dish) => ({
+    id: String(dish.id),
+  }));
+}
 
 export default async function DishPage({ params }) {
   const { id } = await params;
 
-  const dish = dishes.find(
-    (dish) => dish.id === id
-  );
+  const dish = await getDishById(id);
 
   if (!dish) {
     notFound();
@@ -34,11 +24,17 @@ export default async function DishPage({ params }) {
 
   return (
     <article>
-      <h1>{dish.name}</h1>
+      <h2>{dish.name}</h2>
 
       <p>{dish.description}</p>
 
-      <p>Price: {dish.price} ETB</p>
+      <p>
+        <strong>{dish.price} ETB</strong>
+      </p>
+
+      <Link href="/menu">
+        Back to Menu
+      </Link>
     </article>
   );
 }

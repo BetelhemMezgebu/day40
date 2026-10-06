@@ -1,8 +1,9 @@
 export default function Loading() {
   return (
-    <main>
-      <h1>Loading Menu...</h1>
-      <p>Please wait...</p>
-    </main>
+    <section>
+      <h2>Loading Menu...</h2>
+
+      <p>Please wait while the dishes load.</p>
+    </section>
   );
 }

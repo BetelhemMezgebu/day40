@@ -1,20 +1,35 @@
+import Link from "next/link";
+
 export default function MenuLayout({ children }) {
   return (
-    <div>
+    <section>
       <aside>
-        <h2>Categories</h2>
+        <h3>Categories</h3>
 
-        <ul>
-          <li>All</li>
-          <li>Ethiopian</li>
-          <li>Pizza</li>
-          <li>Burgers</li>
-        </ul>
+        <nav>
+          <ul>
+            <li>
+              <Link href="/menu?category=traditional">
+                Traditional
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/menu?category=fast-food">
+                Fast Food
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/menu?category=vegetarian">
+                Vegetarian
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </aside>
 
-      <main>
-        {children}
-      </main>
-    </div>
+      <div>{children}</div>
+    </section>
   );
 }

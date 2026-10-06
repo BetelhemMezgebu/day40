@@ -1,12 +1,11 @@
-import Link from "next/link";
+import CartClient from "../../components/CartClient";
 
 export default function CartPage() {
   return (
-    <main>
-      <h1>Your Cart</h1>
-      <p>Your cart is currently empty.</p>
+    <section>
+      <h2>Your Cart</h2>
 
-      <Link href="/menu">Continue Shopping</Link>
-    </main>
+      <CartClient />
+    </section>
   );
 }

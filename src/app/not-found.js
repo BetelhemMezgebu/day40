@@ -2,11 +2,16 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main>
-      <h1>404 - Page Not Found</h1>
-      <p>The page or dish you are looking for does not exist.</p>
+    <section>
+      <h2>Dish Not Found</h2>
 
-      <Link href="/menu">Back to Menu</Link>
-    </main>
+      <p>
+        Sorry, the dish you requested does not exist.
+      </p>
+
+      <Link href="/menu">
+        Return to Menu
+      </Link>
+    </section>
   );
 }

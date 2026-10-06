@@ -2,11 +2,17 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main>
-      <h1>Welcome to Addis Eats</h1>
-      <p>Delicious food, just a click away.</p>
+    <section>
+      <h2>Welcome to Addis Eats</h2>
 
-      <Link href="/menu">View Menu</Link>
-    </main>
+      <p>
+        Discover delicious Ethiopian food and order
+        your favorite dishes.
+      </p>
+
+      <Link href="/menu">
+        View Menu
+      </Link>
+    </section>
   );
 }
